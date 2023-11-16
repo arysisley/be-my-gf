@@ -6,6 +6,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Hide overflow to prevent horizontal scrolling */
 }
 
 .container {
@@ -14,6 +15,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure z-index works as expected */
 }
 
 button {
@@ -21,4 +23,26 @@ button {
     font-size: 16px;
     margin: 0 10px;
     cursor: pointer;
+}
+
+/* Flower animation */
+.flower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffcc66; /* Flower color */
+    animation: flowerAnimation 10s linear infinite;
+}
+
+@keyframes flowerAnimation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-100vh) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
 }
